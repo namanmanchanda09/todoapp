@@ -8,11 +8,19 @@ class App extends React.Component{
             {id:2,content:'play mario kart'}
         ]
     }
+    deleteTodo = (id) =>{
+        const todoList = this.state.todos.filter(todo =>{
+            return todo.id !== id
+        })
+        this.setState({todos: todoList});
+    }
+
+
   render(){
     return(
         <div className = 'todo-app container'>
             <h1 className='center blue-text'>Todos</h1>
-            <Todos todos={this.state.todos}/>
+            <Todos todos={this.state.todos} deleteTodo = {this.deleteTodo}/>
 
 
 
